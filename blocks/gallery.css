@@ -1,0 +1,13 @@
+.gallery {
+  font-family: Inter;
+  color: white;
+}
+
+.gallery__container {
+  margin-top: 51px;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, auto);
+  column-gap: 17px;
+  row-gap: 20px;
+}

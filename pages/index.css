@@ -1,0 +1,29 @@
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts.css);
+@import url(../blocks/page.css);
+@import url(../blocks/header.css);
+@import url(../blocks/profile.css);
+@import url(../blocks/gallery.css);
+@import url(../blocks/card.css);
+@import url(../blocks/footer.css);
+
+@media all and (max-width: 1080px) {
+  .profile,
+  .header {
+    width: 800px;
+  }
+
+  .gallery__container {
+    grid-template-columns: repeat(2, 282px);
+  }
+}
+
+@media all and (max-width: 320px) {
+  .profile__container {
+    flex-direction: column;
+  }
+
+  .card {
+    grid-column: 1 / 4;
+  }
+}

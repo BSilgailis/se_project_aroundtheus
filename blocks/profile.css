@@ -1,0 +1,68 @@
+.profile {
+  width: 880px;
+}
+
+.profile__container {
+  display: flex;
+  box-sizing: border-box;
+  padding-top: 40px;
+  width: 100%;
+  align-items: center;
+}
+
+.profile__info {
+  display: grid;
+  grid-template-columns: minmax(auto, 373px) auto;
+  grid-template-areas: "name button" "bio bio";
+  row-gap: 16px;
+}
+
+.profile__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+
+.profile__name {
+  margin: 0;
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 500;
+  grid-area: name;
+}
+
+.profile__bio {
+  margin: 0;
+  font-size: 18px;
+  line-height: 21.78px;
+  grid-area: bio;
+}
+
+.profile__edit-btn {
+  width: 24px;
+  height: 24px;
+  margin: 15px auto 0;
+  padding: 0;
+  border: 0;
+  grid-area: button;
+}
+
+.profile__edit-btn_img {
+  width: 24px;
+  height: 24px;
+  margin-right: auto;
+}
+
+.profile__add-btn {
+  width: 150px;
+  height: 50px;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+}
+
+.profile__add-btn_img {
+  width: 150px;
+  height: 50px;
+}
