@@ -1,13 +1,23 @@
+/*
+  Incomplete, I just didn't finish the last steps tonight but
+  wanted to get started on having the comments for finishing my
+  submission tomorrow. Thanks!
+
+*/
+
 .page {
   font-family: Inter;
   color: white;
-  background-color: rgb(44, 1, 44);
+  display: flex;
+  justify-content: center;
+  max-width: 1280px;
 }
 
 .page__wrapper {
   box-sizing: border-box;
   position: relative;
   margin: 0 auto;
-  padding: 45px 200px 60px;
-  max-width: 1280px;
+  width: 90%;
+  max-width: 880px;
+  padding: 45px 0 60px;
 }
