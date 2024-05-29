@@ -12,3 +12,17 @@
   row-gap: 20px;
   justify-content: center;
 }
+
+/* Tablet Layout */
+@media all and (max-width: 1080px) {
+  .gallery__container {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+/* Mobile Layout */
+@media all and (max-width: 320px) {
+  .galley__container {
+    grid-template-columns: 282px;
+  }
+}

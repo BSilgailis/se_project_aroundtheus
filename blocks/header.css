@@ -9,3 +9,11 @@
   height: 33px;
   padding-bottom: 41px;
 }
+
+/* Mobile Layout */
+
+@media all and (max-width: 320px) {
+  .header__logo {
+    margin-left: 27px;
+  }
+}
