@@ -19,10 +19,3 @@
     grid-template-columns: repeat(2, auto);
   }
 }
-
-/* Mobile Layout */
-@media all and (max-width: 320px) {
-  .galley__container {
-    grid-template-columns: 282px;
-  }
-}

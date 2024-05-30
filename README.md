@@ -8,3 +8,4 @@ Following the design styles laid out in Figma transposing into CSS and using som
 
 GitHub Pages: https://bsilgailis.github.io/se_project_aroundtheus/
 
+Link for project video: https://www.loom.com/share/2237b45d331647e2abc6108dd25e582b?sid=48f745f8-60fd-4172-9b9a-2aa31dcc66ed
