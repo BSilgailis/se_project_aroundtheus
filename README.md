@@ -1,21 +1,10 @@
-# Project 3: Around The U.S.
+TripleTen - Project #3 - Around The US
+by: Brendan Silgailis
 
-### Overview  
+The following project features a webpage that users can edit their profile information, add and edit their profile picture, and post pictures into a blog.
 
-* Intro  
-* Figma  
-* Images  
-  
-**Intro**
-  
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
-  
-**Figma**  
-  
-* [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)  
-  
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+This project is to showcase previous skills with HTML and CSS by using the correct semantic tags in html to create the information.
+Following the design styles laid out in Figma transposing into CSS and using some previously learned flex box and newly learned Grid layout.
+
+GitHub Pages: https://bsilgailis.github.io/se_project_aroundtheus/
+
