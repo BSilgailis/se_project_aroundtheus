@@ -7,17 +7,18 @@
 .card__content {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: white;
   width: 282px;
-  height: 79px;
+  box-sizing: border-box;
+  padding: 25px 30px 25px 20px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
 
 .card__title {
   margin: 0;
-  max-width: 220px;
+  max-width: 90%;
   font-size: 24px;
   line-height: 1.2;
   font-weight: 900;
@@ -36,11 +37,13 @@
 .card__btn {
   width: 21px;
   height: 18px;
+  border: 0;
+  background: url("../images/like-btn.svg") center no-repeat;
   transition: opacity 0.3s ease-in-out;
 }
 
 .card__btn:hover {
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 /* Mobile Layout */

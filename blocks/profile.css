@@ -52,8 +52,7 @@
   padding: 0;
   border: 0;
   grid-area: button;
-  background-image: url(../images/edit-btn.png);
-  background-size: cover no-repeat;
+  background: url("../images/edit-btn.svg") center no-repeat;
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -66,9 +65,8 @@
   height: 50px;
   margin-left: auto;
   padding: 0;
-  border: 0;
-  background: url("../images/add-btn.svg");
-  background-size: cover no-repeat;
+  border: 2px solid white;
+  background: url("../images/add-btn.svg") center no-repeat;
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -101,28 +99,27 @@
 
   .profile__name {
     font-size: 22px;
-    font-weight: 500;
     line-height: 26.63px;
     margin-right: 10px;
+    max-width: 100%;
   }
 
   .profile__bio {
     font-size: 14px;
     line-height: 16.94px;
+    max-width: 100%;
   }
 
   .profile__edit-btn {
     width: 18px;
     height: 18px;
     margin: 0;
-    background: url("../images/edit-btn-mobile.svg");
     align-self: center;
+    background-size: 18px 18px;
   }
 
   .profile__add-btn {
-    width: 282px;
-    height: 50px;
+    width: 100%;
     margin: 19px 0 0;
-    background: url("../images/add-btn-mobile.svg");
   }
 }

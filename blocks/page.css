@@ -1,9 +1,11 @@
 .page {
   font-family: Inter, Arial, Helvetica, sans-serif;
+  background-color: black;
   color: white;
   display: flex;
   justify-content: center;
   max-width: 1280px;
+  margin: 0 auto;
 }
 
 .page__wrapper {
