@@ -1,6 +1,6 @@
 .header {
   box-sizing: border-box;
-  border-bottom: 1px solid rgb(84, 84, 84);
+  border-bottom: 1px solid rgb(84, 84, 84, 0.7);
   width: 100%;
 }
 
@@ -12,8 +12,11 @@
 
 /* Mobile Layout */
 
-@media all and (max-width: 320px) {
+@media all and (max-width: 610px) {
   .header__logo {
+    width: 126px;
+    height: 24px;
+    padding-bottom: 32px;
     margin-left: 27px;
   }
 }

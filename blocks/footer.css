@@ -7,9 +7,10 @@
 
 /* Mobile Layout */
 
-@media all and (max-width: 320px) {
+@media all and (max-width: 610px) {
   .footer__text {
     margin-left: 19px;
+    margin-top: 48px;
     font-size: 14px;
   }
 }

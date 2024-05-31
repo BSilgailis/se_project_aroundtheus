@@ -38,6 +38,7 @@
   width: 21px;
   height: 18px;
   border: 0;
+  cursor: pointer;
   background: url("../images/like-btn.svg") center no-repeat;
   transition: opacity 0.3s ease-in-out;
 }
@@ -48,7 +49,7 @@
 
 /* Mobile Layout */
 
-@media all and (max-width: 320px) {
+@media all and (max-width: 610px) {
   .card {
     grid-column: 1 / 4;
   }

@@ -17,5 +17,6 @@
 @media all and (max-width: 1080px) {
   .gallery__container {
     grid-template-columns: repeat(2, auto);
+    margin-top: 36px;
   }
 }
