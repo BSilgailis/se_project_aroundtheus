@@ -22,10 +22,11 @@
             <p class="modal__title">Edit profile</p>
             <input
               class="modal__input"
+              id="nameInput"
               type="text"
-              placeholder="Jacques Cousteau"
+              name="name"
             />
-            <input class="modal__input" type="text" placeholder="Explorer" />
+            <input class="modal__input" id="bioInput" type="text" name="bio" />
           </fieldset>
           <button class="modal__button" type="submit">Save</button>
         </form>
@@ -58,72 +59,15 @@
         </section>
         <section class="gallery">
           <div class="gallery__container">
-            <article class="card">
-              <img
-                class="card__image"
-                src="./images/yosemite.jpg"
-                alt="Yosemite"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Yosemite Valley</h2>
-                <button class="card__btn" type="button"></button>
-              </div>
-            </article>
-            <article class="card">
-              <img
-                class="card__image"
-                src="./images/lake-louise.jpg"
-                alt="Lake Louise"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Lake Louise</h2>
-                <button class="card__btn" type="button"></button>
-              </div>
-            </article>
-            <article class="card">
-              <img
-                class="card__image"
-                src="./images/bald-mountains.jpg"
-                alt="Bald Mountains"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Bald Mountains</h2>
-                <button class="card__btn" type="button"></button>
-              </div>
-            </article>
-            <article class="card">
-              <img
-                class="card__image"
-                src="./images/latemar.jpg"
-                alt="Latemar"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Latemar</h2>
-                <button class="card__btn" type="button"></button>
-              </div>
-            </article>
-            <article class="card">
-              <img
-                class="card__image"
-                src="./images/vanoise.jpg"
-                alt="Vanoise Park"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Vanoise National Park</h2>
-                <button class="card__btn" type="button"></button>
-              </div>
-            </article>
-            <article class="card">
-              <img
-                class="card__image"
-                src="./images/lago.jpg"
-                alt="Lago Di Braies"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Lago Di Braies</h2>
-                <button class="card__btn" type="button"></button>
-              </div>
-            </article>
+            <template id="cardTemplate">
+              <article class="card">
+                <img class="card__image" />
+                <div class="card__content">
+                  <h2 class="card__title"></h2>
+                  <button class="card__btn" type="button"></button>
+                </div>
+              </article>
+            </template>
           </div>
         </section>
       </main>
