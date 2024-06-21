@@ -71,9 +71,14 @@ function getCardElement(data) {
   cardElement.querySelector(".card__image").alt = initialCards[data].name;
   return cardElement;
 }
+
+function renderCard(data) {
+  const cardElement = getCardElement(data);
+  cardGallery.prepend(cardElement);
+}
+
 /* Loop for generating cards off template function */
 for (card in initialCards) {
   /* appending card into html gallery container from function */
-  const cardElement = getCardElement(card);
-  cardGallery.append(cardElement);
+  renderCard(card);
 }
