@@ -85,7 +85,7 @@ I can only make the for-in loop work and on google all I can find without
 advanced javascript is people saying to use for-in */
 
 /* Loop for generating cards off template function */
-for (card of initialCards) {
+for (const card of initialCards) {
   /* appending card into html gallery container from function */
   renderCard(card);
 }
