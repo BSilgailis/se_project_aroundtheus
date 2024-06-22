@@ -28,10 +28,10 @@ const initialCards = [
 const modDisplay = document.querySelector(".modal");
 const openEvent = document.querySelector(".profile__edit-btn");
 const closeEvent = document.querySelector(".modal__close-btn");
-let profileName = document.querySelector(".profile__name");
-let profileBio = document.querySelector(".profile__bio");
-let profileNameInput = document.querySelector("#nameInput");
-let profileBioInput = document.querySelector("#bioInput");
+const profileName = document.querySelector(".profile__name");
+const profileBio = document.querySelector(".profile__bio");
+const profileNameInput = document.querySelector("#nameInput");
+const profileBioInput = document.querySelector("#bioInput");
 const saveProfile = document.querySelector(".modal__form");
 const cardGallery = document.querySelector(".gallery__container");
 
@@ -77,8 +77,15 @@ function renderCard(data) {
   cardGallery.prepend(cardElement);
 }
 
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* If you could answer this comment please!
+I can't find any solution on making the for-of loop work that you suggested,
+
+I can only make the for-in loop work and on google all I can find without
+advanced javascript is people saying to use for-in */
+
 /* Loop for generating cards off template function */
-for (card in initialCards) {
+for (card of initialCards) {
   /* appending card into html gallery container from function */
   renderCard(card);
 }
