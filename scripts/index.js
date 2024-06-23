@@ -65,10 +65,9 @@ function getCardElement(data) {
   const cardTemplate = document.querySelector("#cardTemplate").content;
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
   /* setting content of cards */
-  cardElement.querySelector(".card__image").src = initialCards[data].link;
-  cardElement.querySelector(".card__title").textContent =
-    initialCards[data].name;
-  cardElement.querySelector(".card__image").alt = initialCards[data].name;
+  cardElement.querySelector(".card__image").src = data.link;
+  cardElement.querySelector(".card__title").textContent = data.name;
+  cardElement.querySelector(".card__image").alt = data.name;
   return cardElement;
 }
 
@@ -76,13 +75,6 @@ function renderCard(data) {
   const cardElement = getCardElement(data);
   cardGallery.prepend(cardElement);
 }
-
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-/* If you could answer this comment please!
-I can't find any solution on making the for-of loop work that you suggested,
-
-I can only make the for-in loop work and on google all I can find without
-advanced javascript is people saying to use for-in */
 
 /* Loop for generating cards off template function */
 for (const card of initialCards) {
