@@ -14,10 +14,15 @@
     <title>Around The US</title>
   </head>
   <body class="page">
-    <div class="modal">
+    <!-- Edit Modal-->
+    <div class="modal" id="edit-modal">
       <div class="modal__container">
-        <button class="modal__close-btn" type="button"></button>
-        <form class="modal__form">
+        <button
+          class="modal__close-btn"
+          id="edit-modal-btn"
+          type="button"
+        ></button>
+        <form class="modal__form" id="edit-modal-submit">
           <fieldset class="modal__fieldset">
             <h2 class="modal__title">Edit profile</h2>
             <input
@@ -39,6 +44,50 @@
           </fieldset>
           <button class="modal__button" type="submit">Save</button>
         </form>
+      </div>
+    </div>
+    <!-- Add Card Modal-->
+    <div class="modal" id="add-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close-btn"
+          id="add-modal-btn"
+          type="button"
+        ></button>
+        <form class="modal__form" id="add-modal-submit">
+          <fieldset class="modal__fieldset">
+            <h2 class="modal__title">New Place</h2>
+            <input
+              class="modal__input"
+              id="titleInput"
+              type="text"
+              name="title"
+              placeholder="Title"
+              required
+            />
+            <input
+              class="modal__input"
+              id="urlInput"
+              type="text"
+              name="url"
+              placeholder="Image URL"
+              required
+            />
+          </fieldset>
+          <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+    <!-- picture preview modal -->
+    <div class="modal" id="picture-modal">
+      <div class="modal__picture-container">
+        <button
+          class="modal__close-btn"
+          id="picture-modal-btn"
+          type="button"
+        ></button>
+        <img class="modal__picture" />
+        <p class="modal__picture-desc"></p>
       </div>
     </div>
     <div class="page__wrapper">
@@ -70,6 +119,7 @@
           <div class="gallery__container">
             <template id="cardTemplate">
               <article class="card">
+                <button class="card__delete-btn" type="button"></button>
                 <img class="card__image" />
                 <div class="card__content">
                   <h2 class="card__title"></h2>
