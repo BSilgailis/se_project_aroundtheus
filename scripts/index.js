@@ -24,6 +24,7 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
+
 /* Elements */
 const editModalDisplay = document.querySelector("#edit-modal");
 const addModalDisplay = document.querySelector("#add-modal");
@@ -40,6 +41,8 @@ const newCardUrl = document.querySelector("#urlInput");
 const saveProfile = document.querySelector("#edit-modal-submit");
 const saveNewCard = document.querySelector("#add-modal-submit");
 const cardGallery = document.querySelector(".gallery__container");
+const previewModalDisplay = document.querySelector("#picture-modal");
+const previewCloseEvent = document.querySelector(".modal__picture-close-btn");
 
 /* Opening and closing of modal */
 function fillProfileForm() {
@@ -48,16 +51,22 @@ function fillProfileForm() {
 }
 
 function openModal(modal) {
-  modal.classList.add("modal_opened");
+  modal.classList.toggle("modal_opened");
 }
+
 function closeModal(modal) {
-  modal.classList.remove("modal_opened");
+  modal.classList.toggle("modal_opened");
 }
+
+/* Opening & closing events for modals */
 editOpenEvent.addEventListener("click", () => openModal(editModalDisplay));
 editOpenEvent.addEventListener("click", fillProfileForm);
 editCloseEvent.addEventListener("click", () => closeModal(editModalDisplay));
 addOpenEvent.addEventListener("click", () => openModal(addModalDisplay));
 addCloseEvent.addEventListener("click", () => closeModal(addModalDisplay));
+previewCloseEvent.addEventListener("click", () => {
+  previewModalDisplay.classList.toggle("modal__picture_open");
+});
 
 /* function for cloning card */
 function getCardElement(data) {
@@ -69,31 +78,37 @@ function getCardElement(data) {
   cardElement.querySelector(".card__image").src = data.link;
   cardElement.querySelector(".card__title").textContent = data.name;
   cardElement.querySelector(".card__image").alt = data.name;
+
+  /* setting buttons */
   const likeButton = cardElement.querySelector(".card__btn");
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__btn_dark");
   });
-  const deleteButton = cardElement.querySelector(".card__delete-btn");
 
+  const deleteButton = cardElement.querySelector(".card__delete-btn");
   deleteButton.addEventListener("click", () => {
     deleteButton.parentElement.classList.toggle("card_delete");
   });
 
+  /* set image pop up */
+  const previewImage = document.querySelector(".modal__picture");
+  const previewText = document.querySelector(".modal__picture-desc");
+
+  cardElement.onclick = function () {
+    previewModalDisplay.classList.toggle("modal__picture_open");
+    previewImage.src = data.link;
+    previewText.textContent = data.name;
+  };
+
   return cardElement;
 }
 
-/*
-previewOpenEvent() {
-  openModal(previewModalDisplay);
-}
-  */
 function renderCard(data) {
   const cardElement = getCardElement(data);
   cardGallery.prepend(cardElement);
 }
 
-/* Sprint 5 code */
-/* Task 1 loop rewrite */
+/* Loop for rendering cards */
 initialCards.forEach((data) => {
   renderCard(data);
 });
@@ -107,27 +122,38 @@ function submitProfile(event) {
 }
 
 function submitNewCard(event) {
+  /* set user added pictures */
   const cardTemplate = document.querySelector("#cardTemplate").content;
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
   cardElement.querySelector(".card__image").src = newCardUrl.value;
   cardElement.querySelector(".card__title").textContent = newCardTitle.value;
   cardElement.querySelector(".card__image").alt = newCardTitle.value;
+
+  /* set buttons */
   const likeButton = cardElement.querySelector(".card__btn");
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__btn_dark");
   });
-  const deleteButton = cardElement.querySelector(".card__delete-btn");
 
+  const deleteButton = cardElement.querySelector(".card__delete-btn");
   deleteButton.addEventListener("click", () => {
     deleteButton.parentElement.classList.toggle("card_delete");
   });
+
+  /* set image pop up */
+  const previewImage = document.querySelector(".modal__picture");
+  const previewText = document.querySelector(".modal__picture-desc");
+  cardElement.onclick = function () {
+    previewModalDisplay.classList.toggle("modal__picture_open");
+    previewImage.src = newCardUrl.value;
+    previewText.textContent = newCardTitle.value;
+  };
+
   cardGallery.prepend(cardElement);
   closeModal(addModalDisplay);
   event.preventDefault();
 }
+
+/* Event handlers */
 saveProfile.addEventListener("submit", submitProfile);
 saveNewCard.addEventListener("submit", submitNewCard);
-
-/* Task 4 */
-
-/* Task 5 */

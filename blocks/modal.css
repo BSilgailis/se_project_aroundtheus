@@ -7,11 +7,14 @@
   font-family: Inter, Arial, Helvetica, sans-serif;
   line-height: 1.2;
   color: black;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 1s, opacity 0.5s ease-in-out;
 }
 
 .modal_opened {
-  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 .modal__container {
@@ -24,6 +27,59 @@
   top: 50%;
   left: 50%;
   position: fixed;
+}
+
+.modal__picture-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 1s, opacity 0.5s ease-in-out;
+}
+
+.modal__picture_open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__picture-container {
+  position: sticky;
+  top: 90px;
+}
+
+.modal__picture {
+  object-fit: cover;
+  overflow: hidden;
+  min-width: 240px;
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.modal__picture-desc {
+  width: fit-content;
+  color: white;
+  margin: 10px 0;
+  font-size: 12px;
+}
+
+.modal__picture-close-btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: url("../images/add-btn.svg") center;
+  transform: rotate(45deg);
+  top: -40px;
+  left: 100%;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal__picture-close-btn:hover {
+  opacity: 0.6;
 }
 
 .modal__close-btn {
@@ -93,6 +149,23 @@
 
 .modal__button:hover {
   opacity: 0.8;
+}
+
+@media all and (max-width: 610px) {
+  .modal__picture-close-btn {
+    width: 26px;
+    height: 26px;
+    top: -25px;
+    left: 100%;
+  }
+
+  .modal__picture-container {
+    top: 136px;
+  }
+
+  .modal__picture {
+    width: 300px;
+  }
 }
 
 @media all and (max-width: 790px) {
