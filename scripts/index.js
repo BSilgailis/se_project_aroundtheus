@@ -75,6 +75,7 @@ function getCardElement(data) {
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
 
   /* setting content of cards */
+  const previewElement = cardElement.querySelector(".card__image");
   cardElement.querySelector(".card__image").src = data.link;
   cardElement.querySelector(".card__title").textContent = data.name;
   cardElement.querySelector(".card__image").alt = data.name;
@@ -94,7 +95,7 @@ function getCardElement(data) {
   const previewImage = document.querySelector(".modal__picture");
   const previewText = document.querySelector(".modal__picture-desc");
 
-  cardElement.onclick = function () {
+  previewElement.onclick = function () {
     previewModalDisplay.classList.toggle("modal__picture_open");
     previewImage.src = data.link;
     previewText.textContent = data.name;
@@ -125,6 +126,7 @@ function submitNewCard(event) {
   /* set user added pictures */
   const cardTemplate = document.querySelector("#cardTemplate").content;
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+  const previewElement = cardElement.querySelector(".card__image");
   cardElement.querySelector(".card__image").src = newCardUrl.value;
   cardElement.querySelector(".card__title").textContent = newCardTitle.value;
   cardElement.querySelector(".card__image").alt = newCardTitle.value;
@@ -143,7 +145,7 @@ function submitNewCard(event) {
   /* set image pop up */
   const previewImage = document.querySelector(".modal__picture");
   const previewText = document.querySelector(".modal__picture-desc");
-  cardElement.onclick = function () {
+  previewElement.onclick = function () {
     previewModalDisplay.classList.toggle("modal__picture_open");
     previewImage.src = newCardUrl.value;
     previewText.textContent = newCardTitle.value;
