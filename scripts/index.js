@@ -41,6 +41,8 @@ const saveNewCardForm = document.querySelector("#add-modal-submit");
 const cardGallery = document.querySelector(".gallery__container");
 const previewModalDisplay = document.querySelector("#picture-modal");
 const previewCloseButton = document.querySelector(".modal__picture-close-btn");
+const newCardTitle = document.querySelector("#titleInput");
+const newCardUrl = document.querySelector("#urlInput");
 
 /* Opening and closing of modal */
 function fillProfileForm() {
@@ -59,7 +61,7 @@ function closeModal(modal) {
 /* Opening & closing events for modals */
 editOpenButton.addEventListener("click", () => {
   openModal(editModalDisplay);
-  fillProfileForm;
+  fillProfileForm();
 });
 
 editCloseButton.addEventListener("click", () => closeModal(editModalDisplay));
@@ -125,20 +127,16 @@ function submitProfile(event) {
 }
 
 function submitNewCard(event) {
-  const newCardTitle = document.querySelector("#titleInput").value;
-  const newCardUrl = document.querySelector("#urlInput").value;
   const newCard = {
     name: "",
     link: "",
   };
-  newCard.name = newCardTitle;
-  newCard.link = newCardUrl;
+  newCard.name = newCardTitle.value;
+  newCard.link = newCardUrl.value;
   initialCards.push(newCard);
-  const newCardRender = initialCards.slice(0);
-  newCardRender.forEach((data) => {
-    renderCard(data);
-  });
-
+  renderCard(initialCards.pop());
+  newCardTitle.value = "";
+  newCardUrl.value = "";
   /* set user added pictures */
   closeModal(addModalDisplay);
   event.preventDefault();
