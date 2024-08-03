@@ -78,10 +78,10 @@ function getCardElement(data) {
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
 
   /* setting content of cards */
-  const cardData = cardElement.querySelector(".card__image");
-  cardData.src = data.link;
+  const cardImage = cardElement.querySelector(".card__image");
+  cardImage.src = data.link;
   cardElement.querySelector(".card__title").textContent = data.name;
-  cardData.alt = data.name;
+  cardImage.alt = data.name;
 
   /* setting buttons */
   const likeButton = cardElement.querySelector(".card__btn");
@@ -98,7 +98,7 @@ function getCardElement(data) {
   const previewImage = document.querySelector(".modal__picture");
   const previewText = document.querySelector(".modal__picture-desc");
 
-  cardData.addEventListener("click", () => {
+  cardImage.addEventListener("click", () => {
     openModal(previewModalDisplay);
     previewImage.src = data.link;
     previewImage.alt = data.name;
