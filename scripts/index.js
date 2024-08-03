@@ -81,7 +81,7 @@ function getCardElement(data) {
   const cardData = cardElement.querySelector(".card__image");
   cardData.src = data.link;
   cardElement.querySelector(".card__title").textContent = data.name;
-  cardData.querySelector(".card__image").alt = data.name;
+  cardData.alt = data.name;
 
   /* setting buttons */
   const likeButton = cardElement.querySelector(".card__btn");
