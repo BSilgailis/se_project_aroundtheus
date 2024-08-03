@@ -36,8 +36,8 @@ const profileName = document.querySelector(".profile__name");
 const profileBio = document.querySelector(".profile__bio");
 const profileNameInput = document.querySelector("#nameInput");
 const profileBioInput = document.querySelector("#bioInput");
-const saveProfileForm = document.querySelector("#edit-modal-submit");
-const saveNewCardForm = document.querySelector("#add-modal-submit");
+const profileForm = document.querySelector("#edit-modal-submit");
+const newCardForm = document.querySelector("#add-modal-submit");
 const cardGallery = document.querySelector(".gallery__container");
 const previewModalDisplay = document.querySelector("#picture-modal");
 const previewCloseButton = document.querySelector(".modal__picture-close-btn");
@@ -51,11 +51,11 @@ function fillProfileForm() {
 }
 
 function openModal(modal) {
-  modal.classList.toggle("modal_opened");
+  modal.classList.add("modal_opened");
 }
 
 function closeModal(modal) {
-  modal.classList.toggle("modal_opened");
+  modal.classList.remove("modal_opened");
 }
 
 /* Opening & closing events for modals */
@@ -133,8 +133,7 @@ function submitNewCard(event) {
   };
   newCard.name = newCardTitle.value;
   newCard.link = newCardUrl.value;
-  initialCards.push(newCard);
-  renderCard(initialCards.pop());
+  renderCard(newCard);
   newCardTitle.value = "";
   newCardUrl.value = "";
   /* set user added pictures */
@@ -143,5 +142,5 @@ function submitNewCard(event) {
 }
 
 /* Event handlers */
-saveProfileForm.addEventListener("submit", submitProfile);
-saveNewCardForm.addEventListener("submit", submitNewCard);
+profileForm.addEventListener("submit", submitProfile);
+newCardForm.addEventListener("submit", submitNewCard);
