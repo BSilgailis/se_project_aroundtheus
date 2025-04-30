@@ -41,32 +41,13 @@ function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
 
 function setEventListeners(formEl, options) {
   const { inputSelector } = options;
+  const { submitButtonSelector } = options;
   const inputEls = [...formEl.querySelectorAll(inputSelector)];
-  const submitButton = formEl.querySelector(".modal__button");
-  const popupOverlays = document.querySelectorAll(".modal");
+  const submitButton = formEl.querySelector(submitButtonSelector);
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
       checkInputValidity(formEl, inputEl, options);
       toggleButtonState(inputEls, submitButton, options);
-    });
-  });
-
-  popupOverlays.forEach((popupOverlay) => {
-    window.addEventListener("keydown", (e) => {
-      const isPopupVisible = popupOverlay.classList.contains("modal_opened");
-      if (isPopupVisible && e.key === "Escape") {
-        popupOverlay.classList.remove("modal_opened");
-      }
-    });
-    popupOverlays.forEach((popupOverlay) => {
-      popupOverlay.addEventListener("click", (e) => {
-        if (
-          !e.target.closest(".modal__container") &&
-          !e.target.closest(".modal__picture-container")
-        ) {
-          popupOverlay.classList.remove("modal_opened");
-        }
-      });
     });
   });
 }

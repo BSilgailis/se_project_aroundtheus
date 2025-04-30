@@ -36,13 +36,16 @@ const profileName = document.querySelector(".profile__name");
 const profileBio = document.querySelector(".profile__bio");
 const profileNameInput = document.querySelector("#nameInput");
 const profileBioInput = document.querySelector("#bioInput");
-const profileForm = document.querySelector("#edit-modal-submit");
-const newCardForm = document.querySelector("#add-modal-submit");
+const profileForm = document.forms["edit-modal-submit"];
+const newCardForm = document.forms["add-modal-submit"];
 const cardGallery = document.querySelector(".gallery__container");
 const previewModalDisplay = document.querySelector("#picture-modal");
 const previewCloseButton = document.querySelector(".modal__picture-close-btn");
 const newCardTitle = document.querySelector("#titleInput");
 const newCardUrl = document.querySelector("#urlInput");
+const popupOverlays = document.querySelectorAll(".modal");
+const pictureModal = document.querySelector(".modal__picture-container");
+const profileModal = document.querySelector(".modal__container");
 
 /* Opening and closing of modal */
 function fillProfileForm() {
@@ -140,6 +143,42 @@ function submitNewCard(event) {
   closeModal(addModalDisplay);
   event.preventDefault();
 }
+
+popupOverlays.forEach((popupOverlay) => {
+  window.addEventListener("keydown", (e) => {
+    const isPopupVisible = popupOverlay.classList.contains("modal_opened");
+    if (isPopupVisible && e.key === "Escape") {
+      closeModal(popupOverlay);
+      popupOverlay.removeEventListener("keydown", e);
+    }
+  });
+
+  popupOverlay.addEventListener("click", (e) => {
+    if (e.target.contains(pictureModal)) {
+      closeModal(popupOverlay);
+      e.stopPropagation;
+    }
+  });
+
+  popupOverlay.addEventListener("click", (e) => {
+    if (e.target.contains(profileModal)) {
+      closeModal(popupOverlay);
+      e.stopPropagation;
+    }
+  });
+
+  /*
+  popupOverlays.forEach((popupOverlay) => {
+    popupOverlay.addEventListener("click", (e) => {
+      if (
+        !e.target.closest(".modal__container") &&
+      ) {
+        closeModal(popupOverlay);
+      }
+    });
+  });
+  */
+});
 
 /* Event handlers */
 profileForm.addEventListener("submit", submitProfile);
