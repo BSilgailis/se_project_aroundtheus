@@ -55,10 +55,12 @@ function fillProfileForm() {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscape);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscape);
 }
 
 /* Opening & closing events for modals */
@@ -144,40 +146,19 @@ function submitNewCard(event) {
   event.preventDefault();
 }
 
+function handleEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".modal_opened");
+    closeModal(openedPopup);
+  }
+}
+
 popupOverlays.forEach((popupOverlay) => {
-  window.addEventListener("keydown", (e) => {
-    const isPopupVisible = popupOverlay.classList.contains("modal_opened");
-    if (isPopupVisible && e.key === "Escape") {
-      closeModal(popupOverlay);
-      popupOverlay.removeEventListener("keydown", e);
-    }
-  });
-
   popupOverlay.addEventListener("click", (e) => {
-    if (e.target.contains(pictureModal)) {
+    if (e.target === e.currentTarget) {
       closeModal(popupOverlay);
-      e.stopPropagation;
     }
   });
-
-  popupOverlay.addEventListener("click", (e) => {
-    if (e.target.contains(profileModal)) {
-      closeModal(popupOverlay);
-      e.stopPropagation;
-    }
-  });
-
-  /*
-  popupOverlays.forEach((popupOverlay) => {
-    popupOverlay.addEventListener("click", (e) => {
-      if (
-        !e.target.closest(".modal__container") &&
-      ) {
-        closeModal(popupOverlay);
-      }
-    });
-  });
-  */
 });
 
 /* Event handlers */
