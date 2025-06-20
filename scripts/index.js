@@ -1,3 +1,14 @@
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
+const validateSettings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -26,8 +37,7 @@ const initialCards = [
 ];
 
 /* Elements */
-const editModalDisplay = document.querySelector("#edit-modal");
-const addModalDisplay = document.querySelector("#add-modal");
+
 const editOpenButton = document.querySelector(".profile__edit-btn");
 const editCloseButton = document.querySelector("#edit-modal-btn");
 const addOpenButton = document.querySelector(".profile__add-btn");
@@ -46,6 +56,15 @@ const newCardUrl = document.querySelector("#urlInput");
 const popupOverlays = document.querySelectorAll(".modal");
 const pictureModal = document.querySelector(".modal__picture-container");
 const profileModal = document.querySelector(".modal__container");
+const editModalDisplay = document.querySelector("#edit-modal");
+const addModalDisplay = document.querySelector("#add-modal");
+const editFormValidation = new FormValidator(
+  validateSettings,
+  editModalDisplay
+);
+const addFormValidation = new FormValidator(validateSettings, addModalDisplay);
+editFormValidation.enableValidation();
+addFormValidation.enableValidation();
 
 /* Opening and closing of modal */
 function fillProfileForm() {
